@@ -28,7 +28,7 @@ public class ArraysTupleComparator {
         arr[2] = new Tuple1(100, 5);
         arr[3] = new Tuple1(5, 100);
 
-        Arrays.sort(arr, new Comparator<Tuple1>() {
+       /* Arrays.sort(arr, new Comparator<Tuple1>() {
             @Override
             public int compare(Tuple1 o1, Tuple1 o2) {
                 if (o1.b != o2.b) {
@@ -37,7 +37,18 @@ public class ArraysTupleComparator {
                     return o1.a - o2.a;
                 }
             }
+        });*/
+
+        Arrays.sort(arr, (o1,o2)-> {
+                if (o1.b != o2.b) {
+                    return o1.b - o2.b;
+                } else {
+                    return o1.a - o2.a;
+                }
+
         });
+
+
 
         for (int i = 0; i < 4; i++) {
             System.out.println(arr[i]);
