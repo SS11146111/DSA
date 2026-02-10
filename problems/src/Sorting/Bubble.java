@@ -29,5 +29,6 @@ public class Bubble {
 
         System.out.println(Arrays.toString(arr));
 
+        //T.C = O(n^2), S.C = O(n);
     }
 }
