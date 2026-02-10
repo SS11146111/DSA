@@ -1,5 +1,7 @@
 package Sorting;
 
+import java.util.Arrays;
+
 public class Bubble {
     public static void main(String[] args) {
 
@@ -20,10 +22,12 @@ public class Bubble {
             }
         }
 
-        for(int k : arr)
+      /*  for(int k : arr)
         {
             System.out.print(k+ " ");
-        }
+        }*/
+
+        System.out.println(Arrays.toString(arr));
 
     }
 }
