@@ -50,9 +50,27 @@ public class DoublyLinkedList {
         System.out.println();
     }
 
+    public static void insertionAtFront(int data)
+    {
+        DNode newNode = new DNode(data);
+
+        if (head == null)
+        {
+            head = newNode;
+        }
+
+        newNode.setNext(head);
+        head.setPrev(newNode);
+        head = newNode;
+
+    }
+
     public static void main(String[] args) {
 
         createDoublyLinkedList();
+        printList();
+        insertionAtFront(5);
+        insertionAtFront(0);
         printList();
 
 
