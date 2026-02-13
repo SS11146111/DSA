@@ -9,7 +9,7 @@ public class List {
     private static Node forty = new Node (40);
     private static Node fifty = new Node (50);
 
-    public static Node createList()
+    public static void createStaticList()
     {
         head = ten;
         ten.setNext(twenty);
@@ -17,10 +17,9 @@ public class List {
         thirty.setNext(forty);
         forty.setNext(fifty);
         fifty.setNext(null);
-        return head;
     }
 
-    public static void printList(Node head)
+    public static void printList()
     {
         Node current = head;
         while(current.getNext()!=null)
@@ -30,12 +29,30 @@ public class List {
         }
 
         System.out.print(current.getData());
+        System.out.println();
 
+    }
+
+    public static void insertNodeAtFront(int data)
+    {
+        Node newNode = new Node(data);
+        newNode.setNext(null);
+
+        if(head == null)
+        {
+            head = newNode;
+        }
+        else {
+            newNode.setNext(head);
+            head = newNode;
+        }
     }
     public static void main(String[] args) {
 
-        Node head = createList();
-        printList(head);
+        createStaticList();
+        printList();
+        insertNodeAtFront(5);
+        printList();
 
 
 
