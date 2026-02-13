@@ -88,6 +88,18 @@ public class List {
         }
     }
 
+    public static void deleteNodeInMiddle(int position)
+    {
+        Node current = head;
+        for(int i=1;i<position-1;i++)
+        {
+            current = current.getNext();
+        }
+
+        System.out.println("Deleting data : "+current.getNext().getData());
+        current.setNext(current.getNext().getNext());
+    }
+
     public static void deleteNodeAtEnd()
     {
         Node current = head;
@@ -117,6 +129,8 @@ public class List {
         deleteNodeAtFront();
         printList();
         deleteNodeAtEnd();
+        printList();
+        deleteNodeInMiddle(5);
         printList();
     }
 }
