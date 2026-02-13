@@ -58,11 +58,58 @@ public class DoublyLinkedList {
         {
             head = newNode;
         }
+        else
+        {
+            newNode.setNext(head);
+            head.setPrev(newNode);
+            head = newNode;
+        }
+    }
 
-        newNode.setNext(head);
-        head.setPrev(newNode);
-        head = newNode;
+    public static void insertionAtEnd(int data)
+    {
+        DNode newNode = new DNode(data);
 
+        DNode current = head;
+
+        if(head==null)
+        {
+            head=newNode;
+        }
+        else
+        {
+            while(current.getNext()!=null)
+            {
+                current = current.getNext();
+            }
+
+            current.setNext(newNode);
+            newNode.setPrev(current);
+        }
+    }
+
+    public static void insertionInMiddle(int data, int position)
+    {
+        DNode newNode = new DNode(data);
+
+        DNode current = head;
+
+        if(head==null)
+        {
+            head = newNode;
+        }
+        else
+        {
+            for(int i=1;i<position-1;i++)
+            {
+                current=current.getNext();
+            }
+
+            newNode.setNext(current.getNext());
+            newNode.setPrev(current);
+            current.setNext(newNode);
+            newNode.getNext().setPrev(newNode);
+        }
     }
 
     public static void main(String[] args) {
@@ -72,8 +119,12 @@ public class DoublyLinkedList {
         insertionAtFront(5);
         insertionAtFront(0);
         printList();
-
-
+        insertionAtEnd(60);
+        insertionAtEnd(70);
+        printList();
+        insertionInMiddle(3,2);
+        insertionInMiddle(36,7);
+        printList();
     }
 
 
