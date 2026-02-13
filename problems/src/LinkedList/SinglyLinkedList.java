@@ -22,14 +22,22 @@ public class SinglyLinkedList {
     public static void printList()
     {
         Node current = head;
-        while(current.getNext()!=null)
+        if(head == null)
         {
-            System.out.print(current.getData()+"->");
-            current = current.getNext();
+            return;
+        }
+        else
+        {
+            while(current.getNext()!=null)
+            {
+                System.out.print(current.getData()+"->");
+                current = current.getNext();
+            }
+
+            System.out.print(current.getData());
+            System.out.println();
         }
 
-        System.out.print(current.getData());
-        System.out.println();
 
     }
 
@@ -52,30 +60,52 @@ public class SinglyLinkedList {
     {
         Node current = head;
         Node newNode = new Node(data);
-        newNode.setNext(null);
 
-        for(int i=1; i<position-1; i++)
+        if(head == null)
         {
-            current = current.getNext();
+            head = newNode;
         }
+        else if(head!=null && head.getNext()==null && position ==1)
+        {
+            newNode.setNext(head);
+            head = newNode;
+        }
+        else if(head!=null && head.getNext()!=null && position>=2)
+        {
+            for(int i=1; i<position-1; i++)
+            {
+                current = current.getNext();
+            }
 
-        newNode.setNext(current.getNext());
-        current.setNext(newNode);
+            newNode.setNext(current.getNext());
+            current.setNext(newNode);
+        }
 
     }
 
     public static void insertNodeAtEnd(int data)
     {
-        Node current = head;
         Node newNode = new Node(data);
-        newNode.setNext(null);
-
-        while(current.getNext()!=null)
+        if(head ==null)
         {
-            current=current.getNext();
+            head = newNode;
+        }
+        else if(head!=null && head.getNext()==null)
+        {
+            head.setNext(newNode);
+        }
+        else if(head!=null && head.getNext()!=null)
+        {
+            Node current = head;
+
+            while(current.getNext()!=null)
+            {
+                current=current.getNext();
+            }
+
+            current.setNext(newNode);
         }
 
-        current.setNext(newNode);
     }
 
     public static void deleteNodeAtFront()
@@ -84,32 +114,59 @@ public class SinglyLinkedList {
         {
             System.out.println("Deleting data : "+head.getData());
             head = head.getNext();
-
         }
     }
 
     public static void deleteNodeInMiddle(int position)
     {
-        Node current = head;
-        for(int i=1;i<position-1;i++)
+        if(head==null)
         {
-            current = current.getNext();
+            return;
+        }
+        else if(head!=null && head.getNext()==null && position==1)
+        {
+            head = null;
+        }
+        else if(head!=null && head.getNext()!=null && position>=2)
+        {
+            Node current = head;
+            for(int i=1;i<position-1;i++)
+            {
+                current = current.getNext();
+            }
+
+            System.out.println("Deleting data : "+current.getNext().getData());
+            current.setNext(current.getNext().getNext());
         }
 
-        System.out.println("Deleting data : "+current.getNext().getData());
-        current.setNext(current.getNext().getNext());
     }
 
     public static void deleteNodeAtEnd()
     {
-        Node current = head;
-        while(current.getNext().getNext()!=null)
+        if(head == null)
         {
-            current = current.getNext();
+            return;
+        }
+        else if(head!=null && head.getNext()==null)
+        {
+            head = null;
+        }
+        else if(head!=null && head.getNext().getNext()==null )
+        {
+            head.setNext(null);
+        }
+        else if(head!=null && head.getNext().getNext()!=null)
+        {
+            Node current = head;
+            while(current.getNext().getNext()!=null)
+            {
+                current = current.getNext();
+            }
+
+            System.out.println("Deleting data : "+current.getNext().getData());
+            current.setNext(null);
         }
 
-        System.out.println("Deleting data : "+current.getNext().getData());
-        current.setNext(null);
     }
 
 
