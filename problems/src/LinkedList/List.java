@@ -88,6 +88,18 @@ public class List {
         }
     }
 
+    public static void deleteNodeAtEnd()
+    {
+        Node current = head;
+        while(current.getNext().getNext()!=null)
+        {
+            current = current.getNext();
+        }
+
+        System.out.println("Deleting data : "+current.getNext().getData());
+        current.setNext(null);
+    }
+
 
     public static void main(String[] args) {
 
@@ -103,6 +115,8 @@ public class List {
         insertNodeAtEnd(100);
         printList();
         deleteNodeAtFront();
+        printList();
+        deleteNodeAtEnd();
         printList();
     }
 }
