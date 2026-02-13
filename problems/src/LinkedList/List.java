@@ -76,9 +76,19 @@ public class List {
         }
 
         current.setNext(newNode);
-
-
     }
+
+    public static void deleteNodeAtFront()
+    {
+        if(head!=null)
+        {
+            System.out.println("Deleting data : "+head.getData());
+            head = head.getNext();
+
+        }
+    }
+
+
     public static void main(String[] args) {
 
         createStaticList();
@@ -91,6 +101,8 @@ public class List {
         insertNodeAtEnd(60);
         printList();
         insertNodeAtEnd(100);
+        printList();
+        deleteNodeAtFront();
         printList();
     }
 }
