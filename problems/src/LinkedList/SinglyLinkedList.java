@@ -1,6 +1,6 @@
 package LinkedList;
 
-public class List {
+public class SinglyLinkedList {
 
     private static Node head = null;
     private static Node ten = new Node(10);
