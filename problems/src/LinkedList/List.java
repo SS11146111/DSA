@@ -47,14 +47,50 @@ public class List {
             head = newNode;
         }
     }
+
+    public static void insertNodeInMiddle(int data, int position)
+    {
+        Node current = head;
+        Node newNode = new Node(data);
+        newNode.setNext(null);
+
+        for(int i=1; i<position-1; i++)
+        {
+            current = current.getNext();
+        }
+
+        newNode.setNext(current.getNext());
+        current.setNext(newNode);
+
+    }
+
+    public static void insertNodeAtEnd(int data)
+    {
+        Node current = head;
+        Node newNode = new Node(data);
+        newNode.setNext(null);
+
+        while(current.getNext()!=null)
+        {
+            current=current.getNext();
+        }
+
+        current.setNext(newNode);
+
+
+    }
     public static void main(String[] args) {
 
         createStaticList();
         printList();
         insertNodeAtFront(5);
         printList();
-
-
-
+        insertNodeInMiddle(25,4);
+        insertNodeInMiddle(45,7);
+        printList();
+        insertNodeAtEnd(60);
+        printList();
+        insertNodeAtEnd(100);
+        printList();
     }
 }
