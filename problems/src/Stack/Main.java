@@ -13,7 +13,7 @@ public class Main {
         stack.push(15);
         stack.push(6);
 
-
+        System.out.println(stack.peek());
     }
 
 
