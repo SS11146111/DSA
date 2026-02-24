@@ -15,6 +15,9 @@ public class Main {
         queue.add(20);
         queue.offer(15);
 
+        //if an element is present or not in the queue
+        System.out.println(queue.contains(20));
+
         //both peek and element access the top of the queue, the first element
         System.out.println(queue.peek()); //does not throw exception
         System.out.println(queue.element());//throws exception
