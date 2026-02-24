@@ -16,8 +16,8 @@ public class Main {
         queue.offer(15);
 
         //both peek and element access the top of the queue, the first element
-        System.out.println(queue.peek());
-        System.out.println(queue.element());
+        System.out.println(queue.peek()); //does not throw exception
+        System.out.println(queue.element());//throws exception
 
 
 
