@@ -22,6 +22,11 @@ public class Main {
         //remove the first/top element
         System.out.println(queue.poll());
         System.out.println(queue.poll());
+        System.out.println(queue.remove());
+        System.out.println(queue.remove());
+
+        //size = number of elements in queue
+        System.out.println(queue.size());
 
 
     }
