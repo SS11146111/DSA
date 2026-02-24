@@ -9,6 +9,7 @@ public class Main {
 
         Queue<Integer> queue = new LinkedList<>();
 
+        //both add and offer insert element in queue, add throws exception, offer does not
         queue.add(10);
         queue.offer(5);
         queue.add(20);
