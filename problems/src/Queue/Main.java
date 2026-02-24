@@ -19,6 +19,9 @@ public class Main {
         System.out.println(queue.peek()); //does not throw exception
         System.out.println(queue.element());//throws exception
 
+        //remove the first/top element
+        System.out.println(queue.poll());
+        System.out.println(queue.poll());
 
 
     }
